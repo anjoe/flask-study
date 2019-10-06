@@ -11,6 +11,18 @@ app.register_blueprint(app02)
 #app.register_blueprint(app02,url_prefix='/app04')
 #app.register_blueprint(app02)
 
+@app.before_first_request
+def before_freq():
+    print("before_first_request_1")
+
+@app.before_request
+def before_req():
+    print("before_request_1")
+
+@app.teardown_request
+def teardown_req(e):
+    print("teardown_request")
+
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=80)

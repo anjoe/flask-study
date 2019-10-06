@@ -20,8 +20,8 @@ def user_name(name):
 	print(request.cookies) #获取cookies {}
 	print(request.path)  # 获取访问路径 /req
 	print(request.args) #获取url传过来的值  ImmutableMultiDict([('id', '1'), ('name', 'wl')])
-	print(request.args.get("id")) #get获取id  1
-	print(request.args["name"]) # 索引获取name wl
+	print(request.args.get("test")) #get获取id  1
+	print(request.args["test"]) # 索引获取name wl
 	print(request.args.to_dict()) # 获取到一个字典 {'id': '1', 'name': 'wl'}
 
 	return name
