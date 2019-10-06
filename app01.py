@@ -1,9 +1,7 @@
 from flask import Blueprint
-from flask import redirect
-from flask import abort
-from flask import request
+from flask import redirect,abort,request,render_template
 
-app01=Blueprint('app01',__name__)
+app01=Blueprint('app01',__name__,template_folder='pages')
 
 @app01.route('/01')
 def redirect():
@@ -25,4 +23,16 @@ def user_name(name):
 	print(request.args.to_dict()) # 获取到一个字典 {'id': '1', 'name': 'wl'}
 
 	return name
+
+@app01.route('/tpl2/<name>')
+def stp2(name):
+    my_str = 'Hello Word'
+    my_int = 10
+    return render_template("t2.html",a=my_str,b=my_int,name=name)
+
+@app01.route('/tpl/<int:name>')
+def stpl(name):
+    my_str = 'Hello Word'
+    my_int = 10
+    return render_template("tpl.html",a=my_str,b=my_int,c=name)
 
